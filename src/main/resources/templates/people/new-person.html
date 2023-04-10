@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление человека</title>
+</head>
+<body>
+  <form th:method="POST" th:action="@{/people}" th:object="${person}">
+      <label for="fio">Введите ФИО: </label>
+      <input type="text" id="fio" th:field="*{fio}">
+      <div style="color: red" th:if="${#fields.hasErrors('fio')}" th:errors="*{fio}">Fio error</div>
+
+      <br>
+
+      <label for="date">Введите год рождения: </label>
+      <input type="number" id="date" th:field="*{yearOfBirth}">
+      <div style="color: red" th:if="${#fields.hasErrors('yearOfBirth')}" th:errors="*{yearOfBirth}">Year error</div>
+
+      <br>
+
+      <input type="submit" value="Create!">
+  </form>
+</body>
+</html>

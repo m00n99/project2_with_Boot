@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/people/{id}(id=${person.id})}" th:object="${person}">
+    <label for="fio">Введите ФИО: </label>
+    <input type="text" th:field="*{fio}" id="fio">
+    <div style="color: red" th:if="${#fields.hasErrors('fio')}" th:errors="*{fio}">Fio error</div>
+
+    <br>
+
+    <label for="year">Введите год рождения: </label>
+    <input type="number" th:field="*{yearOfBirth}" id="year">
+    <div style="color: red" th:if="${#fields.hasErrors('yearOfBirth')}" th:errors="*{yearOfBirth}">Year error</div>
+    <br>
+
+    <input type="submit" value="Редактировать!">
+</form>
+</body>
+</html>
